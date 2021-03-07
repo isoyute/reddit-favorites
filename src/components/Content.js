@@ -1,40 +1,38 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Page, Tabs } from '@geist-ui/react';
+import { setFavoritePosts } from '../store/middlewares';
+import { Page, Tabs, Spinner } from '@geist-ui/react';
 import SearchBar from './SearchBar';
 import Posts from './Posts';
+import { useEffect } from 'react';
 
 const Content = () => {
-    const posts = useSelector((state) => state.posts);
-    const favorites = useSelector((state) => state.favorites);
+	const posts = useSelector(state => state.results.posts);
+	const favorites = useSelector(state => state.favorites.posts);
+	const isSearching = useSelector(state => state.results.isSearching);
 
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (favorites && favorites.length === 0) {
-            const storedFavorites = JSON.parse(
-                localStorage.getItem('favorites')
-            );
+	useEffect(() => {
+		// check to see if there are any favorites in local storage
+		const storedFavorites = localStorage.getItem('favorites');
+		if (storedFavorites) {
+			dispatch(setFavoritePosts(JSON.parse(storedFavorites)));
+		}
+	}, [dispatch]);
 
-            if (storedFavorites && storedFavorites.length > 0) {
-                dispatch({ type: 'UPDATE_FAVORITES', posts: storedFavorites });
-            }
-        }
-    }, [favorites, dispatch]);
-
-    return (
-        <Page.Content className='content'>
-            <Tabs initialValue='search' hideDivider>
-                <Tabs.Item label='Search' value='search'>
-                    <SearchBar />
-                    <Posts posts={posts} />
-                </Tabs.Item>
-                <Tabs.Item label='Favorites' value='favorites'>
-                    <Posts posts={favorites} type='favorites' />
-                </Tabs.Item>
-            </Tabs>
-        </Page.Content>
-    );
+	return (
+		<Page.Content className='content'>
+			<Tabs initialValue='search' hideDivider>
+				<Tabs.Item label='Search' value='search'>
+					<SearchBar />
+					{isSearching ? <Spinner size='large' /> : <Posts posts={posts} />}
+				</Tabs.Item>
+				<Tabs.Item label='Favorites' value='favorites'>
+					<Posts type='favorites' posts={favorites} />
+				</Tabs.Item>
+			</Tabs>
+		</Page.Content>
+	);
 };
 
 export default Content;

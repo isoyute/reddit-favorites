@@ -1,8 +1,36 @@
-.favorite.icon {
-    cursor: pointer;
+.card > .content > .row {
+	flex-flow: column nowrap;
 }
 
-.col a > p {
-    text-overflow: ellipsis;
-    overflow: hidden;
+.favorite.icon {
+	cursor: pointer;
+}
+
+.col.content a > p {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.search.post .thumbnail {
+	min-width: 100%;
+}
+
+.search.post .col.content {
+	margin: 10px 0 25px 0;
+}
+
+@media (min-width: 600px) {
+	.card > .content > .row {
+		flex-flow: row nowrap;
+	}
+
+	.search.post .thumbnail {
+		min-width: auto;
+		min-height: auto;
+	}
+
+	.search.post .col.content {
+		margin: 0 20px;
+	}
 }

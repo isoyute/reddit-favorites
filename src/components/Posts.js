@@ -1,29 +1,27 @@
-import { useSelector } from 'react-redux';
-import { Row, Spinner } from '@geist-ui/react';
+import { Col, Row } from '@geist-ui/react';
 import Post from './Post';
 import '../styles/Posts.css';
 
 const Posts = ({ posts, type }) => {
-    const isSearching = useSelector((state) => state.isSearching);
+	const isFavorites = type === 'favorites';
+	const noPostsText = isFavorites
+		? 'list of favorites is empty'
+		: 'nothing to see here.';
 
-    return (
-        <div className='search posts'>
-            {isSearching ? (
-                <Spinner size='large' />
-            ) : posts && posts.length > 0 ? (
-                <>
-                    {!type && <p>{posts.length} posts found ...</p>}
-                    {posts.map((post) => (
-                        <Post key={post.id} post={post} />
-                    ))}
-                </>
-            ) : (
-                <Row className='search not-found' justify='center'>
-                    nothing to see here.
-                </Row>
-            )}
-        </div>
-    );
+	return (
+		<Row className='search posts' justify='center'>
+			{posts && posts.length > 0 ? (
+				<Col>
+					{!isFavorites && <p>{posts.length} posts found ...</p>}
+					{posts.map(post => (
+						<Post key={post.id} post={post} />
+					))}
+				</Col>
+			) : (
+				<Col className='search not-found'>{noPostsText}</Col>
+			)}
+		</Row>
+	);
 };
 
 export default Posts;
