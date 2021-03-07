@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/reddit-favorites/static/css/main.916541d9.chunk.css",
-    "main.js": "/reddit-favorites/static/js/main.c5fbe8cc.chunk.js",
-    "main.js.map": "/reddit-favorites/static/js/main.c5fbe8cc.chunk.js.map",
+    "main.css": "/reddit-favorites/static/css/main.06e644f1.chunk.css",
+    "main.js": "/reddit-favorites/static/js/main.4a6814c9.chunk.js",
+    "main.js.map": "/reddit-favorites/static/js/main.4a6814c9.chunk.js.map",
     "runtime-main.js": "/reddit-favorites/static/js/runtime-main.743194a1.js",
     "runtime-main.js.map": "/reddit-favorites/static/js/runtime-main.743194a1.js.map",
-    "static/js/2.9d62917f.chunk.js": "/reddit-favorites/static/js/2.9d62917f.chunk.js",
-    "static/js/2.9d62917f.chunk.js.map": "/reddit-favorites/static/js/2.9d62917f.chunk.js.map",
+    "static/js/2.5674a9ab.chunk.js": "/reddit-favorites/static/js/2.5674a9ab.chunk.js",
+    "static/js/2.5674a9ab.chunk.js.map": "/reddit-favorites/static/js/2.5674a9ab.chunk.js.map",
     "index.html": "/reddit-favorites/index.html",
-    "static/css/main.916541d9.chunk.css.map": "/reddit-favorites/static/css/main.916541d9.chunk.css.map",
-    "static/js/2.9d62917f.chunk.js.LICENSE.txt": "/reddit-favorites/static/js/2.9d62917f.chunk.js.LICENSE.txt"
+    "static/css/main.06e644f1.chunk.css.map": "/reddit-favorites/static/css/main.06e644f1.chunk.css.map",
+    "static/js/2.5674a9ab.chunk.js.LICENSE.txt": "/reddit-favorites/static/js/2.5674a9ab.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.743194a1.js",
-    "static/js/2.9d62917f.chunk.js",
-    "static/css/main.916541d9.chunk.css",
-    "static/js/main.c5fbe8cc.chunk.js"
+    "static/js/2.5674a9ab.chunk.js",
+    "static/css/main.06e644f1.chunk.css",
+    "static/js/main.4a6814c9.chunk.js"
   ]
 }
