@@ -24,7 +24,11 @@ const Post = ({ post }) => {
 		});
 	};
 
-	const hasThumbnail = post.picture && post.picture !== 'self';
+	const hasThumbnail =
+		post.picture &&
+		post.picture !== 'self' &&
+		post.picture !== 'default' &&
+		post.picture !== 'spoiler';
 
 	return (
 		<Row className='search post'>
