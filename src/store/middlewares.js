@@ -50,7 +50,6 @@ export const fetchPosts = subreddit => (dispatch, getState) => {
 		)
 		.then(posts => {
 			dispatch(getPostsSuccess(posts));
-			console.log(posts);
 
 			// make sure if any favorited posts are in the retrieved list that they are set to favorited
 			[...getState().favorites.posts].forEach(post =>
