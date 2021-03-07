@@ -24,14 +24,18 @@ const Post = ({ post }) => {
 		});
 	};
 
+	const hasThumbnail = post.picture && post.picture !== 'self';
+
 	return (
 		<Row className='search post'>
 			<Card>
 				<Row align='middle'>
-					<Col className='thumbnail' span={5}>
-						<img src={post.picture} alt='thumbnail' />
-					</Col>
-					<Col className='content' span={18}>
+					{hasThumbnail && (
+						<Col className='thumbnail' span={5}>
+							<img src={post.picture} alt='thumbnail' />
+						</Col>
+					)}
+					<Col className='content' span={hasThumbnail ? 18 : 23}>
 						<h4>{post.title}</h4>
 						<a href={post.url} target='_blank' rel='noreferrer'>
 							<p>{post.url}</p>
